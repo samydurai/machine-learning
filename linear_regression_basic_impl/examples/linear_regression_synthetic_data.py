@@ -7,10 +7,13 @@ from linear_regression_basic_impl.plot.plot_box_plot import BoxPlot
 from linear_regression_basic_impl.plot.plot_cost_curve import CostCurve
 from linear_regression_basic_impl.plot.plot_histogram import PlotHistogram
 from linear_regression_basic_impl.plot.plot_input import VisualizeInput
+from sklearn.metrics import mean_squared_error, r2_score
 
 from linear_regression_basic_impl.plot.plot_pairs import PairPlot
 import numpy as np
 import pandas as pd
+
+from linear_regression_scikit.examples.plot_linear_regression_results import LinearRegressionResultPlot
 
 dataset_slug = "nikhil7280/student-performance-multiple-linear-regression"
 file_name_in_dataset = "Student_Performance.csv"
@@ -50,6 +53,11 @@ for i in range(7000, x_train.shape[0]):
 
 perfect_line_fn = PerfectLine()
 perfect_line_fn.plot_perfect_line(y_test, y_pred)
+
+mse = mean_squared_error(y_test, y_pred)
+print(mse)
+print(weights)
+print(bias)
 
 
 
